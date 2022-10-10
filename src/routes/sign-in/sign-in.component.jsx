@@ -12,7 +12,7 @@ import SignUpForm from "../../components/sign-up-form/sign-up-form.component";
 const SignIn = () => {
   // useEffect(async () => {
   //   const response = await getRedirectResult(auth);
-  //   //console.log(response);
+  //   console.log(response);
   //   if (response) {
   //     const userDocRef = await createUserDocumentFromAuth(response.user);
   //   }
@@ -20,8 +20,9 @@ const SignIn = () => {
 
   const logGoogleUser = async () => {
     const { user } = await signInWithGooglePopup();
-    //console.log(user);
+    // console.log(user);
     const userDocRef = await createUserDocumentFromAuth(user);
+    
   };
 
   // const logGoogleRedirectUser = async () => {
