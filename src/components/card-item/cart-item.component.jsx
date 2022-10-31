@@ -1,14 +1,13 @@
-import './card-item.styles.scss';
+import "./card-item.styles.scss";
 
-
-const CardItem = ({cardItem}) => {
-    const { name } = cardItem;
-    return (
-        <div>
-            <h2>{name}</h2>
-        </div>
-    )
-}
-
+const CardItem = ({ cardItem }) => {
+  const { name,quantity } = cardItem;
+  return (
+    <div>
+      <h2>{name}</h2>
+      <span>{quantity}</span>
+    </div>
+  );
+};
 
 export default CardItem;

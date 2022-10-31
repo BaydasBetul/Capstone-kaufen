@@ -7,16 +7,16 @@ import { ProductsProvider } from "./contexts/products.context";
 import "./index.scss";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { CardProvider } from "./contexts/card.context";
+import { CartProvider } from "./contexts/card.context";
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
       <UserProvider>
         <ProductsProvider>
-          <CardProvider>
+          <CartProvider>
             <App />
-          </CardProvider>
+          </CartProvider>
         </ProductsProvider>
       </UserProvider>
     </BrowserRouter>

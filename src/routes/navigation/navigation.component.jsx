@@ -6,7 +6,7 @@ import { UserContext } from "../../contexts/user.context";
 import { signOutUser } from "../../utils/firebase/firebase.utils";
 import CardIcon from "../../components/card-icon/card-icon.component";
 import CardDropdown from "../../components/card-dropdown/card-dropdown.component";
-import { CardContext } from "../../contexts/card.context";
+import { CartContext } from "../../contexts/card.context";
 
 const Navigation = () => {
   const { currentUser } = useContext(UserContext); // , setCurrentUser
@@ -16,7 +16,7 @@ const Navigation = () => {
   //   await signOutUser();
   //   setCurrentUser(null);
   // };
-  const { isCartOpen } = useContext(CardContext);
+  const { isCartOpen } = useContext(CartContext);
   return (
     <Fragment>
       <div className="navigation">
