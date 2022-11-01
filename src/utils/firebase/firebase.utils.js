@@ -10,7 +10,14 @@ import {
   onAuthStateChanged,
 } from "firebase/auth";
 
-import { getFirestore, doc, getDoc, setDoc } from "firebase/firestore";
+import {
+  getFirestore,
+  doc,
+  getDoc,
+  setDoc,
+  collection,
+  writeBatch,
+} from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: "AIzaSyCe8DVx0Wis-WMrNcJLiZtDSBsaKVgklD8",
@@ -37,6 +44,24 @@ export const signInWithGoogleRedirect = () =>
   signInWithRedirect(auth, googleProvider);
 
 export const db = getFirestore();
+
+export const addCollectionAndDocuments = async (
+  collectionKey,
+  objectsToAdd
+  // field = "title"
+) => {
+  // collection referansi aliyorum. verileri depolamak icin api ye cagri yapiyoruz. async de onun icin
+  // yeni bir koleksiyon yaziyoruz. onun icin bu yönteme ihtiyac var
+  const collectionRef = collection(db, collectionKey);
+  const batch = writeBatch(db);
+
+  objectsToAdd.forEach((object) => {
+    const docRef = doc(collectionRef, object.title.toLowerCase()); // object[field].toLowerCase());
+    batch.set(docRef, object);
+  });
+  await batch.commit();
+  console.log("ok");
+};
 
 export const createUserDocumentFromAuth = async (
   userAuth,
