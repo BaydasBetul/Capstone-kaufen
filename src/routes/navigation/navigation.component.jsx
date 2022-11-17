@@ -5,8 +5,9 @@ import {
   NavLinks,
   Navlink,
   LogoContainer,
+  LogoKus,
 } from "./navigation.styles";
-import { ReactComponent as Logojpg } from "../../assets/crown.svg";
+// import { ReactComponent as Logojpg } from "../../assets/mockingjay8.jpg";
 import { UserContext } from "../../contexts/user.context";
 import { signOutUser } from "../../utils/firebase/firebase.utils";
 import CardIcon from "../../components/card-icon/card-icon.component";
@@ -26,7 +27,7 @@ const Navigation = () => {
     <Fragment>
       <NavigationContainer>
         <LogoContainer to="/">
-          <Logojpg />
+          <LogoKus />
         </LogoContainer>
         <NavLinks>
           <Navlink to="/shop">SHOP</Navlink>

@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import Logojpg from "../../assets/23.jpeg";
 
 export const NavigationContainer = styled.div`
   height: 70px;
@@ -12,7 +13,6 @@ export const NavigationContainer = styled.div`
 export const LogoContainer = styled(Link)`
   height: 100%;
   width: 70px;
-  padding: 25px;
 `;
 
 export const NavLinks = styled.div`
@@ -26,6 +26,15 @@ export const NavLinks = styled.div`
 export const Navlink = styled(Link)`
   padding: 10px 15px;
   cursor: pointer;
+`;
+
+export const LogoKus = styled.img`
+  background-image: url(${Logojpg});
+  background-size: cover;
+  background-position: center;
+  height: 70px;
+  width: 70px;
+  /* background-image: ${({ imageUrl }) => `url(${imageUrl})`}; */
 `;
 
 // .navigation {
