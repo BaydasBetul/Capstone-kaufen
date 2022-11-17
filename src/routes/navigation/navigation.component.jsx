@@ -1,6 +1,11 @@
 import { Fragment, useContext } from "react";
-import { Outlet, Link } from "react-router-dom";
-import "./navigation.styles.scss";
+import { Outlet } from "react-router-dom";
+import {
+  NavigationContainer,
+  NavLinks,
+  Navlink,
+  LogoContainer,
+} from "./navigation.styles";
 import { ReactComponent as Logojpg } from "../../assets/crown.svg";
 import { UserContext } from "../../contexts/user.context";
 import { signOutUser } from "../../utils/firebase/firebase.utils";
@@ -19,28 +24,24 @@ const Navigation = () => {
   const { isCartOpen } = useContext(CartContext);
   return (
     <Fragment>
-      <div className="navigation">
-        <Link className="logo-container" to="/">
-          <Logojpg className="logo" />
-        </Link>
-        <div className="nav-links-container">
-          <Link className="nav-link" to="/shop">
-            SHOP
-          </Link>
+      <NavigationContainer>
+        <LogoContainer to="/">
+          <Logojpg />
+        </LogoContainer>
+        <NavLinks>
+          <Navlink to="/shop">SHOP</Navlink>
           {currentUser ? (
-            <span className="nav-link" onClick={signOutUser}>
+            <Navlink as="span" onClick={signOutUser}>
               {" "}
               SIGN OUT{" "}
-            </span>
+            </Navlink>
           ) : (
-            <Link className="nav-link" to="/auth">
-              SIGN IN
-            </Link>
+            <Navlink to="/auth">SIGN IN</Navlink>
           )}
           <CardIcon />
-        </div>
+        </NavLinks>
         {isCartOpen && <CardDropdown />}
-      </div>
+      </NavigationContainer>
       <Outlet />
       {/* Outlet - A component that renders the next match in a set of matches. */}
     </Fragment>
