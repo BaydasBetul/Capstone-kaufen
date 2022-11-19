@@ -1,1 +1,1 @@
-# capstone-kaufen
+# https://betykaufenwebsite.netlify.app/
