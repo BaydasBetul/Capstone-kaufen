@@ -9,6 +9,7 @@ export const CartItemCantainer = styled.div`
 
   img {
     width: 30%;
+    border: 1px solid black;
   }
 `;
 

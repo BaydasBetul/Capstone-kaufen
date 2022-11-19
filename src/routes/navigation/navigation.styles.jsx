@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Logojpg from "../../assets/23.jpeg";
 
 export const NavigationContainer = styled.div`
-  height: 70px;
+  height: 80px;
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -21,6 +21,7 @@ export const NavLinks = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  color: black;
 `;
 
 export const Navlink = styled(Link)`

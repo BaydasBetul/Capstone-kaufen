@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const ProductCartContainer = styled.div`
+  border: 2px solid black;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -9,12 +10,12 @@ export const ProductCartContainer = styled.div`
   position: relative;
   img {
     width: 100%;
-    height: 95%;
+    height: 80%;
     object-fit: cover;
     margin-bottom: 5px;
   }
   button {
-    width: 80%;
+    width: 70%;
     opacity: 0.7;
     position: absolute;
     top: 255px;
@@ -37,10 +38,12 @@ export const Footer = styled.div`
   display: flex;
   justify-content: space-between;
   font-size: 18px;
+  color: black;
 `;
 
 export const Name = styled.span`
   width: 90%;
+  font-weight: bold;
   margin-bottom: 15px;
 `;
 
