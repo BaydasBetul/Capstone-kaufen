@@ -22,12 +22,13 @@ import {
 } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCe8DVx0Wis-WMrNcJLiZtDSBsaKVgklD8",
-  authDomain: "capstone-kaufen-db.firebaseapp.com",
-  projectId: "capstone-kaufen-db",
-  storageBucket: "capstone-kaufen-db.appspot.com",
-  messagingSenderId: "538226724619",
-  appId: "1:538226724619:web:ef928f0cd33acccbd91c0e",
+  apiKey: process.env.REACT_APP_API_KEY,
+  authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+  databaseURL: process.env.REACT_APP_DATABASE_URL,
+  projectId: process.env.REACT_APP_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_APP_ID,
 };
 
 // Initialize Firebase
