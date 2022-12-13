@@ -1,5 +1,8 @@
-import { Fragment, useContext } from "react";
+import { useSelector } from "react-redux";
+import { Fragment } from "react";
 import { Outlet } from "react-router-dom";
+import { selectCurrentUser } from "../../store/user/user.selector";
+import { selectIsCartOpen } from "../../store/cart/cart.selector";
 import {
   NavigationContainer,
   NavLinks,
@@ -7,22 +10,14 @@ import {
   LogoContainer,
   LogoKus,
 } from "./navigation.styles";
-// import { ReactComponent as Logojpg } from "../../assets/mockingjay8.jpg";
-import { UserContext } from "../../contexts/user.context";
 import { signOutUser } from "../../utils/firebase/firebase.utils";
 import CardIcon from "../../components/card-icon/card-icon.component";
 import CardDropdown from "../../components/card-dropdown/card-dropdown.component";
-import { CartContext } from "../../contexts/card.context";
 
 const Navigation = () => {
-  const { currentUser } = useContext(UserContext); // , setCurrentUser
-  // console.log(currentUser);
+  const currentUser = useSelector(selectCurrentUser);
+  const isCartOpen = useSelector(selectIsCartOpen);
 
-  // const signOutHandler = async () => {
-  //   await signOutUser();
-  //   setCurrentUser(null);
-  // };
-  const { isCartOpen } = useContext(CartContext);
   return (
     <Fragment>
       <NavigationContainer>
@@ -33,8 +28,7 @@ const Navigation = () => {
           <Navlink to="/shop">SHOP</Navlink>
           {currentUser ? (
             <Navlink as="span" onClick={signOutUser}>
-              {" "}
-              SIGN OUT{" "}
+              SIGN OUT
             </Navlink>
           ) : (
             <Navlink to="/auth">SIGN IN</Navlink>

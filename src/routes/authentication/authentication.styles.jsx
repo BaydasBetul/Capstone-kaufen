@@ -7,11 +7,3 @@ export const AuthenticationContainer = styled.div`
   margin: 30px auto;
   // border: 1px solid black;
 `;
-
-// .authentication-contanier{
-//     display: flex;
-//     justify-content: space-between;
-//     width: 900px;
-//     margin: 30px auto;
-//     // border: 1px solid black;
-// }

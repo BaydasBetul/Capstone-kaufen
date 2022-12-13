@@ -1,8 +1,24 @@
+import { useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import CategoriesPreview from "../categories-preview/categories-preview.component";
 import Category from "../category/category.component";
+import { getCategoriesAndDocuments } from "../../utils/firebase/firebase.utils";
+import { setCategories } from "../../store/categories/categories.action";
 
 const Shop = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const getCategoriesMap = async () => {
+      const categories = await getCategoriesAndDocuments("categories");
+
+      dispatch(setCategories(categories));
+    };
+
+    getCategoriesMap();
+  }, [dispatch]);
+
   return (
     <Routes>
       <Route index element={<CategoriesPreview />} />
@@ -12,40 +28,3 @@ const Shop = () => {
 };
 
 export default Shop;
-
-// import SHOP_DATA from "../../shop-data.json";
-// import { useContext } from "react"; //, Fragment
-// import { ProductsContext } from "../../contexts/products.context";
-// import ProductCard from "../../components/product-card/product-card.component";
-// import { CategoriesContext } from "../../contexts/categories.context";
-// import CategoryPreview from "../../components/category-preview/category-preview.component";
-
-// import "./shop.styles.scss";
-
-// const Shop = () => {
-//   const { categoriesMap } = useContext(CategoriesContext);
-//   return (
-//     <div className="shop-container">
-//       {Object.keys(categoriesMap).map((title) => {
-//         const products = categoriesMap[title];
-//         return (
-//           <CategoryPreview key={title} title={title} products={products} />
-//         );
-//       })}
-//     </div>
-//     //   <Fragment>
-//     //   {Object.keys(categoriesMap).map((title) => (
-//     //     <Fragment key={title}>
-//     //       <h2>{title}</h2>
-//     //       <div className='products-container'>
-//     //         {categoriesMap[title].map((product) => (
-//     //           <ProductCard key={product.id} product={product} />
-//     //         ))}
-//     //       </div>
-//     //     </Fragment>
-//     //   ))}
-//     // </Fragment>
-//   );
-// };
-
-// export default Shop;
